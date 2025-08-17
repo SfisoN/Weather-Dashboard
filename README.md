@@ -1,12 +1,42 @@
-# React + Vite
+# 🌦️ WeatherAI Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and responsive weather dashboard built with **Vite** and **React**, allowing users to search for real-time weather data by city.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 City-based weather search
+- ⚡ Fast development with Vite
+- 🎨 Responsive UI with modern styling
+- 🧩 Modular React components
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/ ├── assets/ # Static assets like icons and images ├── components/ # Reusable React components (e.g., WeatherCard) ├── pages/ # Page-level components (e.g., Search.jsx) ├── App.jsx # Main app component ├── main.jsx # Entry point
+
+Code
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or higher recommended)
+- npm or yarn
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/weather-ai-dashboard.git
+cd weather-ai-dashboard
+npm install
+Running the App
+bash
+npm run dev
+Visit http://localhost:5173 to view the app.
+
+📦 Built With
+Vite
+
+React
+
+📝 License
+© 2025 WeatherAI. All rights reserved.
