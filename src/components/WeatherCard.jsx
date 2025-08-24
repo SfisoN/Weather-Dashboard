@@ -6,14 +6,14 @@ function WeatherCard() {
 
   return (
     <div className="h-screen w-screen flex flex-col justify-between bg-gray-100 relative h-screen">
-      {/* Background */}
+      
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/assets/weather4.jpg')" }}
       ></div>
       <div className="absolute inset-0 bg-black/50"></div>
 
-      {/* Foreground */}
+      
       <div className="relative z-10 flex flex-col justify-center items-center h-full gap-4">
         <div className="bg-gray-700/70 p-6 rounded-lg shadow-lg">
           <SearchBar onWeatherFetched={setWeather} />
