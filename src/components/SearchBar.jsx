@@ -1,28 +1,39 @@
 import React, { useState } from "react";
 import { Search } from "react-feather";
+import { fetchWeather } from "../services/weatherService.js";
 
-function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState("");
+function SearchBar({onWeatherFetched}) {
+  const [ city, setCity] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    if (searchTerm.trim() === "") {
+    if (city.trim() === "") {
       alert("Please enter a valid city name");
       return;
     }
+    const weatherData = await fetchWeather(city);
+    if(weatherData && onWeatherFetched) {
+      onWeatherFetched(weatherData);
+    }else{
+
+      alert("City not found. Please try again.");
+    }
+
   };
+
+
   return (
     <div>
-      <form onSubmit={handleSubmit} className="search-bar">
+      <form onSubmit={handleSearch} className="search-bar">
         <input
           type="text"
-          placeholder="Search for a city..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder="Enter a city..."
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
           className="search-input"
         />
         <button 
-        type="submit" 
+        
         className="search-button"
         >
           <Search className="search-icon" />

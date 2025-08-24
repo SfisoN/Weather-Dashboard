@@ -1,24 +1,33 @@
-import React from 'react';
-import SearchBar from './SearchBar';
+import React, { useState } from "react";
+import SearchBar from "./SearchBar";
 
 function WeatherCard() {
-  return (
-    <div className='h-screen w-screen flex flex-col justify-between bg-gray-100'>
-        <div className='relative flex-grow'>
-            <div 
-            className='absolute inset-0 bg-cover bg-center'
-             style={{ backgroundImage: "url('/assets/weather4.jpg')" }}
-        />
-        <div className='absolute inset-0 bg-black/50' />
+  const [weather, setWeather] = useState(null);
 
-        <div className='relative z0-10 flex justify-center items-center h-full'>
-            <div className='bg-gray-700/70 p-6 rounded-lg shadow-lg'>
-            <SearchBar />
-            </div>
-            </div>
+  return (
+    <div className="h-screen w-screen flex flex-col justify-between bg-gray-100 relative h-screen">
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/assets/weather4.jpg')" }}
+      ></div>
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      {/* Foreground */}
+      <div className="relative z-10 flex flex-col justify-center items-center h-full gap-4">
+        <div className="bg-gray-700/70 p-6 rounded-lg shadow-lg">
+          <SearchBar onWeatherFetched={setWeather} />
         </div>
 
-        
+        {weather && (
+          <div className="bg-gray-800/70 p-4 rounded-lg text-white text-center">
+            <h2 className="text-xl font-bold">{weather.name}</h2>
+            <p>Temperature: {weather.main.temp} °C</p>
+            <p>Weather: {weather.weather[0].description}</p>
+            <p>Humidity: {weather.main.humidity}%</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
